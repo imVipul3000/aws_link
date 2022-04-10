@@ -19,7 +19,7 @@ app.use(morgan('dev'));
 app.use(myConnection(mysql, {
     host: 'localhost',
     user: 'root',
-    password: 'Vipul876999',
+    password: 'Vipul@2123',
     port: 3306,
     database: 'nodejs2'
 }, 'single'));
