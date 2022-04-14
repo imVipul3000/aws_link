@@ -1,8 +1,11 @@
 const router = require('express').Router();
-
+const express = require('express');
 const customerController = require('../controllers/customerController');
 
-router.get('/', customerController.list);
+router.get('/', customerController.home);
+router.get('/contact', customerController.contact);
+router.get('/study', customerController.list);
+router.get('/study1', customerController.viewz);
 router.post('/add', customerController.save);
 router.get('/update/:id', customerController.edit);
 router.post('/update/:id', customerController.update);

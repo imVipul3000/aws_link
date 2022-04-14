@@ -1,4 +1,7 @@
 const controller = {};
+const path = require('path');
+const express = require('express');
+const app = express();
 
 controller.list = (req, res) => {
     req.getConnection((err, conn) => {
@@ -19,7 +22,7 @@ controller.save = (req, res) => {
     req.getConnection((err, connection) => {
         const query = connection.query('INSERT INTO customer set ?', data, (err, customer) => {
             console.log(customer);
-            res.redirect('/');
+            res.redirect('/study');
         })
     })
 };
@@ -41,7 +44,7 @@ controller.update = (req, res) => {
     req.getConnection((err, conn) => {
 
         conn.query('UPDATE customer set ? where id = ?', [newCustomer, id], (err, rows) => {
-            res.redirect('/');
+            res.redirect('/study');
         });
     });
 };
@@ -50,9 +53,29 @@ controller.delete = (req, res) => {
     const {id} = req.params;
     req.getConnection((err, connection) => {
         connection.query('DELETE FROM customer WHERE id = ?', [id], (err, rows) => {
-            res.redirect('/');
+            res.redirect('/study');
         });
     });
 };
 
+controller.home = (req, res) => {
+    res.sendFile('./htmls/home.html', { root: __dirname });
+};
+
+controller.contact = (req, res) => {
+    res.sendFile('./htmls/contact.html', { root: __dirname });
+};
+
+controller.viewz = (req, res) => {
+    req.getConnection((err, conn) => {
+        conn.query('SELECT * FROM customer', (err, view1) => {
+            if (err) {
+                res.json(err);
+            }
+            res.render('view1', {
+                data: view1
+            });
+        });
+    });
+};
 module.exports = controller;
