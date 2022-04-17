@@ -1,20 +1,41 @@
-<% include partials/_header %>
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
 
-<div class="container mt-5">
-    <div class="row">
-        <div class="col-md-7">
-            <table class="table table-bordered table-hover">
-                <thead>
-                <tr>
-                    <td>#</td>
-                    <td>Skill</td>
-                    <td>Technology</td>
-                    <td>Status</td>
-                    <td>Comments</td>
-                </tr>
-                </thead>
-                <tbody>
-                <% if (data) { %>
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+  background-color: #04AA6D;
+  color: white;
+}
+</style>
+</head>
+<body>
+
+<h2>Study Index</h2>
+
+<table>
+  <thead>
+  <tr>
+    <th>#</th>
+    <th>Skill</th>
+    <th>Technology</th>
+    <th>Status</th>
+    <th>Comments</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% if (data) { %>
                     <% for(var i = 0; i < data.length; i++) { %>
                         <tr>
                             <td><%= (i + 1) %></td>
@@ -25,10 +46,10 @@
                         </tr>
                     <% } %>
                 <% } %>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>
+  </tbody>
+</table>
 
-<% include partials/_footer %>
+</body>
+</html>
+
+

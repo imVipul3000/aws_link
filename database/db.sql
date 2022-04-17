@@ -1,20 +1,55 @@
--- to create a new database
-CREATE DATABASE nodejs2;
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
 
--- to use database
-use nodejs2;
+th, td {
+  text-align: left;
+  padding: 8px;
+}
 
--- creating a new table
-CREATE TABLE customer (
-  id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-  Skill VARCHAR(50) NOT NULL,
-  Technology VARCHAR(100) NOT NULL,
-  Status VARCHAR(15),
-  Comments VARCHAR(500) NOT NULL
-);
+tr:nth-child(even){background-color: #f2f2f2}
 
--- to show all tables
-show tables;
+th {
+  background-color: #04AA6D;
+  color: white;
+}
+</style>
+</head>
+<body>
 
--- to describe table
-describe customer;
+<h2>Colored Table Header</h2>
+
+<table>
+  <thead>
+  <tr>
+    <th>#</th>
+    <th>Skill</th>
+    <th>Technology</th>
+    <th>Status</th>
+    <th>Comments</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% if (data) { %>
+                    <% for(var i = 0; i < data.length; i++) { %>
+                        <tr>
+                            <td><%= (i + 1) %></td>
+                            <td><%= data[i].Skill %></td>
+                            <td><%= data[i].Technology %></td>
+                            <td><%= data[i].Status %></td>
+                            <td><%= data[i].Comments %></td>
+                        </tr>
+                    <% } %>
+                <% } %>
+  </tbody>
+</table>
+
+</body>
+</html>
+
+
