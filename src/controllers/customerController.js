@@ -27,6 +27,17 @@ controller.save = (req, res) => {
     })
 };
 
+controller.save = (req, res) => {
+    const data = req.body;
+    console.log(req.body);
+    req.getConnection((err, connection) => {
+        const query = connection.query('INSERT INTO contact set ?', data, (err, contact) => {
+            console.log(contact);
+            res.redirect('/contact');
+        })
+    })
+};
+
 controller.edit = (req, res) => {
     const {id} = req.params;
     req.getConnection((err, conn) => {

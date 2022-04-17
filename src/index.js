@@ -8,6 +8,8 @@ const app = express();
 
 // importing routes
 const customerRoutes = require('./routes/customer');
+const customerController = require('../src/controllers/customerController');
+const router = require('express').Router();
 
 // settings
 app.set('port', process.env.PORT || 3000);
@@ -28,6 +30,16 @@ app.use(express.urlencoded({extended: false}));
 // routes
 
 app.use('/', customerRoutes);
+app.post("/send",function(req,res){
+    const data = req.body;
+    console.log(req.body);
+    req.getConnection((err, connection) => {
+        const query = connection.query('INSERT INTO contact set ?', data, (err, contact) => {
+            console.log(contact);
+            res.redirect('/contact');
+        })
+    })
+});
 
 
 // static files

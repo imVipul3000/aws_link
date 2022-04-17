@@ -11365,26 +11365,28 @@
         <h3 style="color: white;">Contact Form</h3>
 
 <div class="container" style="color: white; width:50% ; ">
-  <form action="/action_page.php">
-    <label for="fname">First Name</label>
-    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+  <form action="/send" method="POST">
+    <label for="name" name="name">Name</label>
+    <input type="text" id="fname" name="Name" placeholder="Your name..">
 
-    <label for="lname">Last Name</label>
-    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+    <label for="lname">Country</label>
+    <input type="text" id="lname" name="Country" placeholder="Your Country">
 
-    <label for="country">Country</label>
-    <input type="text" id="cname" name="country" placeholder="Your country name..">
+    <label for="country">Email</label>
+    <input type="text" id="cname" name="Email" placeholder="Your Email">
 
     <label for="subject">Message</label>
-    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+    <textarea id="subject" name="Message" placeholder="Write your Message...." style="height:200px"></textarea>
 
-    <button id="button" onclick="f1()" type="submit" form="nameform" value="Submit" style="background-color: #04AA6D;">Submit</button>
+    <button id="button" type="submit" onclick="f1()" class="btn btn-primary">
+        Send
+    </button>
   </form>
 </div>
     </body>
     <script>
         function f1(){
-            document.getElementById('button').innerHTML = "Submitted !!";
+            document.getElementById('button').innerHTML = "Sent..!!";
         }
     </script>
 </html>
