@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+  background-color: #04AA6D;
+  color: white;
+}
+</style>
+</head>
+<body>
+
+<h2>Study Index</h2>
+
+<table>
+  <thead>
+  <tr>
+    <th>#</th>
+    <th>Name</th>
+    <th>Country</th>
+    <th>Email</th>
+    <th>Message</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% if (data) { %>
+                    <% for(var i = 0; i < data.length; i++) { %>
+                        <tr>
+                            <td><%= (i + 1) %></td>
+                            <td><%= data[i].Name %></td>
+                            <td><%= data[i].Country %></td>
+                            <td><%= data[i].Email %></td>
+                            <td><%= data[i].Message %></td>
+                        </tr>
+                    <% } %>
+                <% } %>
+  </tbody>
+</table>
+
+</body>
+</html>
+
+

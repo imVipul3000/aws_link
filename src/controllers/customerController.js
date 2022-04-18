@@ -89,4 +89,17 @@ controller.viewz = (req, res) => {
         });
     });
 };
+
+controller.message = (req, res) => {
+    req.getConnection((err, conn) => {
+        conn.query('SELECT * FROM contact', (err, contact) => {
+            if (err) {
+                res.json(err);
+            }
+            res.render('contact', {
+                data: contact
+            });
+        });
+    });
+};
 module.exports = controller;
