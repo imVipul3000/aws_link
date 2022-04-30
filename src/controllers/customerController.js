@@ -16,12 +16,14 @@ controller.list = (req, res) => {
     });
 };
 
-controller.save = (req, res) => {
+controller.save1 = (req, res) => {
+    console.log("its comming here.....")
     const data = req.body;
-    console.log(req.body);
     req.getConnection((err, connection) => {
+        console.log("its comming here.....")
         const query = connection.query('INSERT INTO customer set ?', data, (err, customer) => {
             console.log(customer);
+            console.log("its comming here.....")
             res.redirect('/study');
         })
     })
