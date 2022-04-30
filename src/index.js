@@ -36,7 +36,7 @@ app.post("/send",function(req,res){
     req.getConnection((err, connection) => {
         const query = connection.query('INSERT INTO contact set ?', data, (err, contact) => {
             console.log(contact);
-            res.redirect('/contact');
+            res.redirect('/study1');
         })
     })
 });
