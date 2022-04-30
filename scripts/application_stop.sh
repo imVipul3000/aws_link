@@ -2,4 +2,4 @@
 #Stopping existing node servers
 echo "Stopping any existing node servers"
 
-pm2 stop index > stop_log.txt
+pm2 stop index
