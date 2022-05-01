@@ -3,7 +3,7 @@ const path = require('path');
 const express = require('express');
 const app = express();
 
-controller.send = (req, res) => {
+controller.send1 = (req, res) => {
     const data = req.body;
     console.log(req.body);
     req.getConnection((err, connection) => {

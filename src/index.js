@@ -21,7 +21,7 @@ app.use(morgan('dev'));
 app.use(myConnection(mysql, {
     host: 'localhost',
     user: 'ubuntu',
-    password: 'Vipul@21233',
+    password: 'Vipul@2123',
     port: 3306,
     database: 'nodejs2'
 }, 'single'));
@@ -30,12 +30,12 @@ app.use(express.urlencoded({extended: false}));
 // routes
 
 app.use('/', customerRoutes);
-app.post("/send",function(req,res){
+app.post("/send1",function(req,res){
     const data = req.body;
     console.log(req.body);
     req.getConnection((err, connection) => {
         const query = connection.query('INSERT INTO contact set ?', data, (err, contact) => {
-            res.redirect('/study1');
+            res.redirect('/contact');
         })
     })
 });
