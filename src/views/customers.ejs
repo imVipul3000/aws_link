@@ -1,61 +1,18 @@
-<% include partials/_header %>
+CREATE DATABASE nodejs2;
 
-<div class="container mt-5">
-    <div class="row">
-        <div class="col-md-7">
-            <table class="table table-bordered table-hover">
-                <thead>
-                <tr>
-                    <td>#</td>
-                    <td>Skill</td>
-                    <td>Technology</td>
-                    <td>Status</td>
-                    <td>Comments</td>
-                </tr>
-                </thead>
-                <tbody>
-                <% if (data) { %>
-                    <% for(var i = 0; i < data.length; i++) { %>
-                        <tr>
-                            <td><%= (i + 1) %></td>
-                            <td><%= data[i].skill %></td>
-                            <td><%= data[i].technology %></td>
-                            <td><%= data[i].status %></td>
-                            <td><%= data[i].comments %></td>
-                            <td>
-                              <a href="/update/<%= data[i].id %>" class="btn btn-info">Edit</a>
-                               <a href="/delete/<%= data[i].id %>" class="btn btn-danger">Delete</a>
-                            </td>
-                        </tr>
-                    <% } %>
-                <% } %>
-                </tbody>
-            </table>
-        </div>
-        <div class="col-md-5">
-            <div class="card-body">
+-- to use database
+use nodejs2;
 
-                <form action="/add1" method="POST">
-                    <div class="form-group">
-                        <input type="text" name="skill" placeholder="Skill" class="form-control" autofocus>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" name="technology" placeholder="Technology" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <input type="text" name="status" placeholder="Status" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <input type="text" name="comments" placeholder="Comments" class="form-control">
-                    </div>
+-- creating a new table
+CREATE TABLE customer (
+  id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(50) NOT NULL,
+  address VARCHAR(100) NOT NULL,
+  phone VARCHAR(15)
+);
 
-                    <button type="submit" class="btn btn-primary">
-                        save Skill
-                    </button>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
+-- to show all tables
+show tables;
 
-<% include partials/_footer %>
+-- to describe table
+describe customer;
